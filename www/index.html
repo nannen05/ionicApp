@@ -20,22 +20,26 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/services.js"></script>
   </head>
   <body ng-app="starter">
-    <!--
-      The nav bar that will be updated as we navigate between views.
-    -->
-    <ion-nav-bar class="bar-positive">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-    </ion-nav-bar>
-    <!--
-      The views will be rendered in the <ion-nav-view> directive below
-      Templates are in the /templates folder (but you could also
-      have templates inline in this html file if you'd like).
-    -->
-    <ion-nav-view></ion-nav-view>
+
+    <ion-pane>
+      <ion-header-bar class="bar-positive">
+         <button class="button button-small button-outline ">Home</button>
+        <h1 class="title">Ionic Blank Starter</h1>
+      </ion-header-bar>
+      <div class="bar bar-subheader padding">
+        <h2>Sub Header</h2>
+      </div>
+      <ion-content class="padding has-subheader">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultricies elit sit amet ornare fringilla. Proin porta rhoncus ante, sed consequat augue tincidunt sit amet. Sed at lorem ligula. Nulla sed faucibus est. Morbi gravida enim sem, ac lobortis turpis laoreet quis. Sed bibendum vel nisl at sollicitudin. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi non lacus lectus. Suspendisse potenti. Quisque faucibus nec nunc sed sagittis. Etiam suscipit scelerisque sapien vel pharetra. Etiam tortor ligula, blandit nec aliquet non, luctus vel urna. Sed id tortor accumsan, pretium dolor ultricies, aliquet neque. Fusce tempus magna sit amet eros dictum faucibus. Phasellus tincidunt porta erat, et iaculis est. Aenean sagittis tellus velit, et commodo nibh dictum ne
+        </p>
+
+        <button class="button button-block button-outline button-positive">Hello</button>
+      </ion-content>
+      <div class="bar bar-footer bar-balanced">
+        <div class="title">Footer</div>
+      </div>
+    </ion-pane>
   </body>
 </html>
