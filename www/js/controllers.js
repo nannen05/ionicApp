@@ -21,6 +21,13 @@ angular.module('starter.controllers', [])
     $http.get('js/artists.json').success(function(data) {
         $scope.artists = data;
 
+        $scope.doRefresh = function() {
+          $http.get('js/artists.json').success(function(data) {
+            $scope.artists = data;
+            $scope.$broadcast('scroll.refreshComplete');
+          });
+        };  
+
         $scope.toggleStar = function(item) {
           item.star = !item.star;
         }
