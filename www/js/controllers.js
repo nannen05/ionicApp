@@ -17,6 +17,12 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('ListController', ['$scope', '$http', function($scope, $http) {
+    $http.get('js/artists.json').success(function(data) {
+        $scope.artists = data;
+    });
+}])
+
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
