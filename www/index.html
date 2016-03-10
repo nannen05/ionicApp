@@ -24,16 +24,36 @@
     <script src="js/services.js"></script>
   </head>
   <body ng-app="starter">
-    <!--
-      The nav bar that will be updated as we navigate between views.
-    -->
-    <ion-nav-bar class="bar-positive">
-    </ion-nav-bar>
-    <!--
-      The views will be rendered in the <ion-nav-view> directive below
-      Templates are in the /templates folder (but you could also
-      have templates inline in this html file if you'd like).
-    -->
-    <ion-nav-view></ion-nav-view>
+      <ion-view view-title="Dashboard" ng-controller="ListController" class="">
+          <ion-header-bar class="bar-positive">
+            <h2 class="title">Artist List</h2>
+            <button class="button button-icon ion-navicon"
+              ng-click="data.showReorder = !data.show">
+            </button>
+          </ion-header-bar>
+
+          <div class="bar bar-subheader item-input-inset bar-light">
+            <label class="item-input-wrapper">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="search" ng-model="query" placeholder="Search">
+            </label>
+          </div>
+
+          <ion-content ng-controller="ListController" class="has-subheader">
+              
+            <ion-list show-reorder="data.showReorder">
+              <ion-item  ng-repeat="item in artists | filter: query" class="item-thumbnail-left item-text-wrap" >
+                <img src="http://placehold.it/100X100">
+                <h2>{{item.name}}</h2>
+                <h3>{{item.reknown}}</h3>
+                <p>{{item.bio | limitTo: 100}}{{item.bio.length > 150 ? '&hellip;' : ''}}</p>
+                <ion-reorder-button class="ion-navicon"
+                  on-reorder="moveItem(item, $fromIndex, $toIndex)">
+                </ion-reorder-button>  
+              </ion-item>
+            </ion-list>
+
+          </ion-content>
+      </ion-view>
   </body>
 </html>

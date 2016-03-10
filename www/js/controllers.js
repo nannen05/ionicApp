@@ -20,6 +20,10 @@ angular.module('starter.controllers', [])
 .controller('ListController', ['$scope', '$http', function($scope, $http) {
     $http.get('js/artists.json').success(function(data) {
         $scope.artists = data;
+        $scope.moveItem = function(item, fromIndex, toIndex) {
+          $scope.artists.splice(fromIndex, 1);
+          $scope.artists.splice(toIndex, 0, item);
+        };
     });
 }])
 
