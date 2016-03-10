@@ -47,12 +47,24 @@
           <ion-content class="has-subheader">
               
             <ion-list show-reorder="data.showReorder" show-delete="data.showDelete">
-              <ion-item  ng-repeat="item in artists | filter: query" class="item-thumbnail-left item-text-wrap" >
-              
+              <ion-item  class="item-thumbnail-left item-icon-right item-text-wrap"
+                ng-repeat="item in artists | filter: query"
+                ng-class="{'star': item.star}">
+
                 <img src="http://placehold.it/100X100">
                 <h2>{{item.name}}</h2>
                 <h3>{{item.reknown}}</h3>
                 <p>{{item.bio | limitTo: 100}}{{item.bio.length > 150 ? '&hellip;' : ''}}</p>
+
+                <button class="button button-clear icon ion-star button-assertive"
+                  ng-click="toggleStar(item)" 
+                  ng-show="item.star">
+                </button>
+                
+                <ion-option-button class="button-dark"
+                  ng-click="toggleStar(item)">
+                  <i class="icon ion-star"></i>
+                </ion-option-button>  
 
                 <ion-delete-button class="ion-minus-circled"
                   ng-click="onItemDelete(item)">
